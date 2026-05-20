@@ -65,8 +65,8 @@ const Terminal: React.FC<TerminalProps> = ({
       {' '}
       {/* Prompt line */}
       <div className="mb-4 flex items-center">
-        <span className="mr-2 text-mist-900 dark:text-slate-400">MIR~$</span>
-        <span className="text-mist-500">{typedCommand}</span>
+        <span className="mr-2 text-mist-500 dark:text-slate-400">MIR~$</span>
+        <span className="text-mist-900 dark:text-neutral-200">{typedCommand}</span>
       </div>
       {/* Details section - typed */}
       {typedDetails && (
@@ -75,10 +75,10 @@ const Terminal: React.FC<TerminalProps> = ({
             <div key={index}>
               {line.includes(':') ? (
                 <>
-                  <span className="text-mist-900 dark:text-slate-400">
+                  <span className="text-mist-500 dark:text-slate-400">
                     {line.split(':')[0]}:{' '}
                   </span>
-                  <span className="text-mist-500">
+                  <span className="text-mist-900 dark:text-neutral-200">
                     {line.split(':')[1].trim()}
                   </span>
                 </>
