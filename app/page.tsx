@@ -30,7 +30,7 @@ export default function HomePage() {
               title="Web Developer"
               location="Mashhad, Iran"
               status="Open to work"
-              quote={`"The only way to do great work is to love what you do. - Steve Jobs"`}
+              quote={`"In a time of destruction, create something" \n - Maxine Hong Kingston`}
             />
           </div>
         </Slide>
