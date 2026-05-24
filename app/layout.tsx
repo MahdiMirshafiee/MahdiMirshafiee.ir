@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={` ${incognito.variable} ${gitlabmono.variable} bg-white text-gray-600 dark:bg-stone-900 dark:text-slate-300`}
+        className={`${incognito.variable} ${gitlabmono.variable} bg-white text-gray-600 dark:bg-stone-900 dark:text-slate-300`}
       >
         <ThemeProvider
           attribute="class"

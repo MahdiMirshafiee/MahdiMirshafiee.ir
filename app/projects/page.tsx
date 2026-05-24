@@ -8,16 +8,16 @@ function ProjectsPage() {
   return (
     <div className="mx-auto mt-20 max-w-5xl">
       <Slide className="mb-16 text-center">
-        <h1 className="mb-4 text-4xl font-bold dark:text-neutral-100 md:text-5xl lg:text-6xl">
+        <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl dark:text-neutral-100">
           Made by Me
         </h1>
-        <p className="mx-auto max-w-xl font-[incognito] text-lg dark:text-neutral-400">
-          Looking for a Web Developer? Let&apos;s connect and discuss how I can
-          contribute to your team.
+        <p className="mx-auto max-w-xl font-incognito text-lg dark:text-neutral-400">
+          A collection of projects I've built — from side experiments to
+          production-ready apps.
         </p>
       </Slide>
       <Slide delay={0.1}>
-        <div className="grid min-h-auto grid-cols-1 gap-4 m-5 xl:m-0 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="m-5 grid min-h-auto grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:m-0">
           {projects.map((project) => {
             const DBIcon = project.techstack.db?.icon
             const BIcon = project.techstack.backend?.icon
@@ -26,8 +26,7 @@ function ProjectsPage() {
             return (
               <div
                 key={project.id}
-                className=" w-full rounded-2xl p-2.5 pt-2 inset-shadow-sm inset-shadow-mauve-600/50 dark:inset-shadow-mauve-500/50"
-                // className="h-60 w-80 rounded-2xl p-2.5 pt-2 bg-[rgba(255,255,255,0.03)] backdrop-blur-xl border border-solid border-[rgba(255,255,255,0.1)]"
+                className="w-full rounded-2xl p-2.5 pt-2 inset-shadow-sm inset-shadow-mauve-600/50 dark:inset-shadow-mauve-500/50"
               >
                 <div className="flex flex-row-reverse pt-3">
                   <div className="flex gap-2">

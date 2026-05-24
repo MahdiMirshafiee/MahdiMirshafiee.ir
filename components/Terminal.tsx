@@ -66,7 +66,9 @@ const Terminal: React.FC<TerminalProps> = ({
       {/* Prompt line */}
       <div className="mb-4 flex items-center">
         <span className="mr-2 text-mist-500 dark:text-slate-400">MIR~$</span>
-        <span className="text-mist-900 dark:text-neutral-200">{typedCommand}</span>
+        <span className="text-mist-900 dark:text-neutral-200">
+          {typedCommand}
+        </span>
       </div>
       {/* Details section - typed */}
       {typedDetails && (
