@@ -6,6 +6,7 @@ import Magnetic from '@/animation/Magnetic'
 import Link from 'next/link'
 import Theme from './Theme'
 import { data } from '@/data/navLink'
+import Image from 'next/image'
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -13,11 +14,10 @@ const Header: React.FC = () => {
   return (
     <header className="relative border-b border-gray-200 dark:border-zinc-700 lg:min-h-15 ">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        {/* Logo */}
-        <div className="text-2xl font-extrabold">
+        <div className="text-2xl font-extrabold flex">
           <Magnetic strength={0.3} maxMove={25} scale={1.1}>
             <Link className="font-[incognito] font-semibold" href="/">
-              MIRSHAFIEE
+              <Image src={"/icons/mirpoker.PNG"} alt='Mirpoker' width={40} height={40} className=" shadow-[0_0_8px_rgba(202,213,226,0.25)] transition-shadow duration-300 hover:shadow-[0_0_14px_rgba(202,213,226,0.4)]"/>
             </Link>
           </Magnetic>
         </div>
