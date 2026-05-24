@@ -24,22 +24,6 @@ const Footer: React.FC = () => {
               Next.js
             </a>
           </div>
-          <div className="flex mt-1">
-            <h3 className="font-inter  mr-1">Host with:</h3>
-            <a
-              href="https://nextjs.org"
-              className="flex items-center  hover:underline"
-            >
-              <Image
-                src={githublogo}
-                width={20}
-                height={20}
-                alt="github logo"
-                className="mr-1"
-              />
-              GitHub
-            </a>
-          </div>
         </div>
 
         <div className="flex flex-col lg:items-end items-center lg:text-start text-center">
