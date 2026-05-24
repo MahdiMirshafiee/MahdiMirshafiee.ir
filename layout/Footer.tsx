@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16">
         <div className="flex flex-col items-center ">
           <div className="flex">
-            <h3 className="font-inter mr-1">Built with:</h3>
+            <h3 className="font-incognito mr-1">Built with:</h3>
             <a
               href="https://nextjs.org"
               className="flex items-center  hover:underline"
