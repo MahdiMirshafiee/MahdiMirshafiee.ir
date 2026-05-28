@@ -35,7 +35,7 @@ export const socialLinks = [
   {
     id: 5,
     name: "Telegram",
-    url: "https://t.me/mirpoker",
+    url: "https://t.me/mirpokerr",
     icon: BiLogoTelegram,
   },
   {
