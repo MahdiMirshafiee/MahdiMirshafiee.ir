@@ -83,7 +83,7 @@ export default function Contact() {
           <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl dark:text-neutral-100">
             Get In Touch
           </h1>
-          <p className="mx-auto max-w-xl font-incognito text-lg dark:text-neutral-400">
+          <p className="font-incognito mx-auto max-w-xl text-lg dark:text-neutral-400">
             Looking for a Web Developer? Let&apos;s connect and discuss how I
             can contribute to your team.
           </p>
@@ -96,7 +96,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900/60 backdrop-blur-sm md:p-8">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 backdrop-blur-sm md:p-8 dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-6 text-xl font-semibold text-zinc-800 dark:text-neutral-100">
                 Send a Message
               </h2>
@@ -179,7 +179,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-3 lg:col-span-2"
           >
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900/60 backdrop-blur-sm">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-5 text-lg font-semibold text-zinc-800 dark:text-neutral-100">
                 Direct Contact
               </h2>
@@ -190,14 +190,8 @@ export default function Contact() {
                     <a
                       key={method.label}
                       href={method.href}
-                      target={
-                        method.href.startsWith('http') ? '_blank' : undefined
-                      }
-                      rel={
-                        method.href.startsWith('http')
-                          ? 'noopener noreferrer'
-                          : undefined
-                      }
+                      target="_blank"
+                      rel="noreferrer"
                       className="group flex items-center gap-4 rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4 transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100 dark:border-neutral-700/50 dark:bg-neutral-800/40 dark:hover:border-gray-500/30 dark:hover:bg-neutral-800/70"
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-200/60 text-zinc-500 transition-colors group-hover:bg-zinc-200 dark:bg-gray-500/10 dark:text-gray-400 dark:group-hover:bg-gray-500/20">
@@ -218,7 +212,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900/60 backdrop-blur-sm">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-5 text-lg font-semibold text-zinc-800 dark:text-neutral-100">
                 Connect Online
               </h2>
@@ -230,6 +224,7 @@ export default function Contact() {
                       key={social.label}
                       href={social.href}
                       target="_blank"
+                      rel="noreferrer"
                       className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-200/80 bg-zinc-50/60 px-4 py-3 text-zinc-600 transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100 hover:text-zinc-900 dark:border-neutral-700/50 dark:bg-neutral-800/40 dark:text-neutral-400 dark:hover:border-gray-500/30 dark:hover:bg-neutral-800/70 dark:hover:text-gray-200"
                     >
                       <Icon className="text-xl" />

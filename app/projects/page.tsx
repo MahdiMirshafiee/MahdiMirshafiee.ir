@@ -34,6 +34,7 @@ function ProjectsPage() {
                       className="h-7 w-7 transform content-center rounded-full duration-200 hover:scale-110"
                       href={project.ghlink}
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <BiLogoGithub size={28} color="#6e2163" />
                     </a>
@@ -42,6 +43,7 @@ function ProjectsPage() {
                         className="h-7 w-7 transform content-center items-center rounded-full duration-200 hover:scale-110"
                         href={project.demolink}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <RiLinkM size={28} color="#0bbbf5" />
                       </a>

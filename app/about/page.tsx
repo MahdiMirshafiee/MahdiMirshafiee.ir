@@ -88,6 +88,7 @@ export default async function About() {
                   <a
                     href={`mailto:mirshafieemahdi001@gmail.com`}
                     target="_blank"
+                    rel="noreferrer"
                     className="flex transform items-center gap-x-2 duration-300 hover:scale-105 hover:text-slate-500"
                   >
                     <BiEnvelope />
@@ -101,6 +102,7 @@ export default async function About() {
                           key={social.id}
                           href={social.url}
                           target="_blank"
+                          rel="noreferrer"
                           className="flex transform items-center gap-x-2 duration-300 hover:scale-105 hover:text-slate-500"
                         >
                           <Icon />
