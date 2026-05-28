@@ -14,7 +14,7 @@ export default function HomePage() {
               Web developer
             </h1>
             <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-              I'm Mahdi Mirshafiee, a software developer passionate about
+              I&apos;m Mahdi Mirshafiee, a software developer passionate about
               continuous learning,
               <br /> building web applications with the JavaScript ecosystem,
               and exploring new technologies.
