@@ -24,9 +24,7 @@ function Skills() {
 
             <div className="m-5 mt-0 flex flex-wrap gap-3">
               {frontendSkills.map((skill) => {
-                const Icon = skill.icon as React.ComponentType<{
-                  className?: string
-                }>
+                const Icon = skill.icon
                 return (
                   <a
                     key={skill.id}
@@ -51,9 +49,7 @@ function Skills() {
 
             <div className="m-5 mt-0 flex flex-wrap gap-3 md:grid-cols-4">
               {backendSkills.map((skill) => {
-                const Icon = skill.icon as React.ComponentType<{
-                  className?: string
-                }>
+                const Icon = skill.icon
                 return (
                   <a
                     key={skill.id}

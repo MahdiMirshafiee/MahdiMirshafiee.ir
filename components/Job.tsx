@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { formatDate } from '@/utils/date'
 import { Slide } from '@/animation/Slide'
-import RefLink from './RefLink'
+import RefLink from '../module/RefLink'
 import { jobs } from '@/data/jobs'
 
 export default async function Job() {
@@ -38,11 +38,11 @@ export default async function Job() {
                 <h3 className="text-xl font-semibold">{job.name}</h3>
                 <p>{job.jobTitle}</p>
                 <time className="mt-2 text-sm tracking-widest text-zinc-500 uppercase">
-                  {formatDate(job.startDate)} - {""}
+                  {formatDate(job.startDate)} - {''}
                   {job?.endDate ? (
                     formatDate(job?.endDate)
                   ) : (
-                    <span className="dark:text-mauve-300 text-mauve-800">
+                    <span className="text-mauve-800 dark:text-mauve-300">
                       Present
                     </span>
                   )}

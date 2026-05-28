@@ -10,11 +10,16 @@ export default function Theme() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    const timer = setTimeout(() => {
+      setMounted(true)
+    }, 0)
+    return () => clearTimeout(timer)
   }, [])
 
   if (!mounted) {
-    return <span className="min-h-7 min-w-7 animate-pulse rounded-full border border-zinc-300 bg-zinc-200 p-2 dark:border-zinc-700 dark:bg-zinc-800" />
+    return (
+      <span className="min-h-7 min-w-7 animate-pulse rounded-full border border-zinc-300 bg-zinc-200 p-2 dark:border-zinc-700 dark:bg-zinc-800" />
+    )
   }
 
   const isLight = resolvedTheme === 'light'
