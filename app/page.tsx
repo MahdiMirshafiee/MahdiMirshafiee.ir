@@ -5,7 +5,7 @@ import Terminal from '@/components/Terminal'
 
 export default function HomePage() {
   return (
-    <main className="mx-auto mt-20 h-full lg:h-120 max-w-7xl px-6 md:px-16 lg:mt-32">
+    <main className="mx-auto mt-20 h-full max-w-7xl px-6 md:px-16 lg:mt-32 lg:h-120">
       <section className="mb-16 flex flex-col items-start justify-between gap-x-12 xl:flex-row xl:items-center xl:justify-center">
         <div className="max-w-2xl lg:max-w-2xl">
           <Slide>
