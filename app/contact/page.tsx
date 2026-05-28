@@ -16,9 +16,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { MotionDiv } from '@/animation/Motion'
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name is required'),
-  email: z.string().email('Invalid email'),
-  message: z.string().min(10, 'Message is too short'),
+  name: z.string().min(2, 'Name is required').max(100, 'Name is too long'),
+  email: z.string().email('Invalid email').max(100, 'Email is too long'),
+  message: z
+    .string()
+    .min(10, 'Message is too short')
+    .max(5000, 'Message is too long'),
 })
 
 type ContactFormValues = z.infer<typeof contactSchema>
