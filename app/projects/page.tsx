@@ -11,8 +11,8 @@ function ProjectsPage() {
         <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl dark:text-neutral-100">
           Made by Me
         </h1>
-        <p className="mx-auto max-w-xl font-incognito text-lg dark:text-neutral-400">
-          A collection of projects I've built — from side experiments to
+        <p className="font-incognito mx-auto max-w-xl text-lg dark:text-neutral-400">
+          A collection of projects I&apos;ve built — from side experiments to
           production-ready apps.
         </p>
       </Slide>
@@ -26,22 +26,28 @@ function ProjectsPage() {
             return (
               <div
                 key={project.id}
-                className="w-full rounded-2xl p-2.5 pt-2 inset-shadow-sm inset-shadow-mauve-600/50 dark:inset-shadow-mauve-500/50"
+                className="h-60 w-full rounded-2xl p-3 pt-2 inset-shadow-sm inset-shadow-mauve-600/50 dark:inset-shadow-mauve-500/50"
               >
                 <div className="flex flex-row-reverse pt-3">
                   <div className="flex gap-2">
                     <a
                       className="h-7 w-7 transform content-center rounded-full duration-200 hover:scale-110"
                       href={project.ghlink}
+                      target="_blank"
                     >
                       <BiLogoGithub size={28} color="#6e2163" />
                     </a>
-                    <a
-                      className="h-7 w-7 transform content-center items-center rounded-full duration-200 hover:scale-110"
-                      href={project.demolink}
-                    >
-                      <RiLinkM size={28} color="#0bbbf5" />
-                    </a>
+                    {project.demolink ? (
+                      <a
+                        className="h-7 w-7 transform content-center items-center rounded-full duration-200 hover:scale-110"
+                        href={project.demolink}
+                        target="_blank"
+                      >
+                        <RiLinkM size={28} color="#0bbbf5" />
+                      </a>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </div>
 
@@ -50,8 +56,8 @@ function ProjectsPage() {
                   <p className="font-[gitlabmono] text-sm text-gray-500">
                     {project.description}
                   </p>
-                  <p className="mt-16 flex content-center items-center pt-4 font-mono">
-                    <span className="mr-2 text-xs">Thech stack:</span>
+                  <div className="mt-auto flex content-center items-center pt-4 font-mono">
+                    <span className="mr-2 text-xs">Tech Stack:</span>
                     <div className="flex gap-1">
                       {LIcon ? (
                         <LIcon
@@ -75,7 +81,7 @@ function ProjectsPage() {
                         />
                       ) : null}
                     </div>
-                  </p>
+                  </div>
                 </div>
               </div>
             )
