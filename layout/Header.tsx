@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import Magnetic from '@/animation/Magnetic'
 import Link from 'next/link'
-import Theme from './Theme'
+import Theme from '../module/Theme'
 import { data } from '@/data/navLink'
 import Image from 'next/image'
 

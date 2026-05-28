@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import nextjslogo from "@/public/icons/next.svg";
-import githublogo from "@/public/icons/GitHub.svg";
 
 const Footer: React.FC = () => {
   return (
