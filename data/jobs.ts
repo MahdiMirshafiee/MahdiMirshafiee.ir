@@ -5,7 +5,7 @@ export const jobs = [
     logo: '/icons/self-employee.png',
     name: 'Self-Employed',
     jobTitle: 'Full-Stack Web Developer',
-    startDate: '12-06-2022',
+    startDate: '7-1-2024',
     endDate: null,
     description:
       'Building full-stack web applications with TypeScript, React, Next.js, Node.js, and Express. Working on user interfaces, backend APIs, and database design.',
