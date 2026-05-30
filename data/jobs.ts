@@ -1,4 +1,15 @@
-export const jobs = [
+interface Job {
+  id: number
+  url: string
+  logo: string
+  name: string
+  jobTitle: string
+  startDate: string
+  endDate: string | null
+  description: string
+}
+
+export const jobs: Job[] = [
   {
     id: 1,
     url: 'https://github.com/MahdiMirshafiee',
