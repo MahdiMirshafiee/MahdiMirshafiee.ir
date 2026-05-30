@@ -161,7 +161,7 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-linear-to-r from-gray-200 to-gray-300 px-4 py-2.5 text-sm font-semibold text-neutral-500 hover:from-gray-100 hover:to-gray-200 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:py-3.5 sm:text-base dark:from-gray-600 dark:to-gray-700 dark:text-neutral-200 dark:hover:from-gray-500 dark:hover:to-gray-600"
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-linear-to-r from-gray-600 to-gray-700 px-4 py-2.5 text-sm font-semibold text-neutral-200 hover:from-gray-500 hover:to-gray-600 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:py-3.5 sm:text-base"
                 >
                   {isSubmitting ? (
                     <>
