@@ -1,4 +1,3 @@
-// components/Terminal.tsx
 'use client'
 import React, { useState, useEffect } from 'react'
 
@@ -65,7 +64,7 @@ const Terminal: React.FC<TerminalProps> = ({
         <span className="h-3 w-3 rounded-full bg-yellow-400" />
         <span className="h-3 w-3 rounded-full bg-green-400" />
       </div>
-      <div className="mb-4 mt-3 flex items-center">
+      <div className="mt-3 mb-4 flex items-center">
         <span className="mr-2 text-mist-500 dark:text-slate-400">MIR~$</span>
         <span className="text-mist-900 dark:text-neutral-200">
           {typedCommand}

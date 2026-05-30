@@ -4,11 +4,9 @@ import { z } from 'zod'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-// Simple in-memory rate limiter (resets on server restart / cold start)
-// For production, replace with Redis-based solution (e.g. Upstash)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
-const RATE_LIMIT = 5        // max requests
-const RATE_WINDOW = 60_000  // per 60 seconds
+const RATE_LIMIT = 5
+const RATE_WINDOW = 60_000
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now()
@@ -31,7 +29,6 @@ const contactSchema = z.object({
   message: z.string().min(10).max(5000),
 })
 
-// Strip HTML tags to prevent injection in email clients
 function sanitize(str: string): string {
   return str.replace(/<[^>]*>/g, '').trim()
 }
@@ -43,7 +40,6 @@ const ALLOWED_ORIGINS = [
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting
     const ip =
       req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
 
@@ -54,13 +50,11 @@ export async function POST(req: Request) {
       )
     }
 
-    // Origin check
     const origin = req.headers.get('origin')
     if (origin && !ALLOWED_ORIGINS.includes(origin)) {
       return new NextResponse(null, { status: 403 })
     }
 
-    // Parse & validate with zod
     let body: unknown
     try {
       body = await req.json()
@@ -89,7 +83,10 @@ export async function POST(req: Request) {
     })
 
     if (error) {
-      return NextResponse.json({ error: 'Failed to send email.' }, { status: 500 })
+      return NextResponse.json(
+        { error: 'Failed to send email.' },
+        { status: 500 }
+      )
     }
 
     return NextResponse.json({ success: true, id: data?.id })

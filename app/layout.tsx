@@ -1,4 +1,3 @@
-// app/layout.tsx
 import Header from '@/layout/Header'
 import './globals.css'
 import { gitlabmono, incognito } from '@/public/font/font'

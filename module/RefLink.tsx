@@ -8,18 +8,13 @@ export default function RefLink({
   className,
   target = '_blank',
 }: {
-  href: Url
+  href: Url  //+ "?ref=mahdimirshafiee.ir"
   children?: React.ReactNode
   className?: string
   target?: HTMLAttributeAnchorTarget
 }) {
   return (
-    <Link
-      href={href} //+ "?ref=mahdimirshafiee.ir"
-      target={target}
-      rel="noreferrer"
-      className={className}
-    >
+    <Link href={href} target={target} rel="noreferrer" className={className}>
       {children}
     </Link>
   )

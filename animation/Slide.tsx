@@ -1,23 +1,23 @@
-"use client";
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useRef, useEffect, RefObject } from "react";
+'use client'
+import { motion, useInView, useAnimation } from 'framer-motion'
+import { useRef, useEffect, RefObject } from 'react'
 
 interface SlideProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
+  children: React.ReactNode
+  delay?: number
+  className?: string
 }
 
 export const Slide = ({ children, className, delay }: SlideProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInview = useInView(ref as RefObject<Element>, { once: true });
-  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null)
+  const isInview = useInView(ref as RefObject<Element>, { once: true })
+  const controls = useAnimation()
 
   useEffect(() => {
     if (isInview) {
-      controls.start("stop");
+      controls.start('stop')
     }
-  }, [controls, isInview]);
+  }, [controls, isInview])
 
   return (
     <motion.div
@@ -27,7 +27,7 @@ export const Slide = ({ children, className, delay }: SlideProps) => {
         stop: { opacity: 1, translateY: 0 },
       }}
       transition={{
-        ease: "easeInOut",
+        ease: 'easeInOut',
         duration: 0.3,
         delay: delay,
         stiffness: 0.5,
@@ -37,5 +37,5 @@ export const Slide = ({ children, className, delay }: SlideProps) => {
     >
       <div className={className}>{children}</div>
     </motion.div>
-  );
-};
+  )
+}
