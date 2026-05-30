@@ -26,7 +26,7 @@ const Header: React.FC = () => {
                 height={40}
                 priority
                 loading="eager"
-                className="shadow-[0_0_8px_rgba(202,213,226,0.25)] transition-shadow duration-300 hover:shadow-[0_0_14px_rgba(202,213,226,0.4)]"
+                className="shadow-[0_0_8px_rgba(202,213,226,0.25)] transition-shadow duration-300 hover:shadow-[0_0_14px_rgba(202,213,226,0.32)]"
               />
             </Link>
           </Magnetic>
