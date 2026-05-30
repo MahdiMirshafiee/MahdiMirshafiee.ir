@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { BiEnvelope, BiLinkExternal } from 'react-icons/bi'
 import { Slide } from '@/animation/Slide'
@@ -7,12 +8,64 @@ import Skills from '@/components/Skills'
 import { socialLinks } from '@/data/social'
 import { getAge, getYearsOfExperience } from '@/utils/getAge-Experience'
 
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Learn more about Mahdi Mirshafiee — a full-stack web developer from Mashhad, Iran, specializing in TypeScript, Next.js, React, and Node.js.',
+  alternates: {
+    canonical: 'https://mahdimirshafiee.com/about',
+  },
+  openGraph: {
+    title: 'About | Mahdi Mirshafiee',
+    description:
+      'Full-stack web developer from Mashhad, Iran. Specializing in TypeScript, Next.js, React, and Node.js.',
+    url: 'https://mahdimirshafiee.com/about',
+    images: [
+      {
+        url: '/photos/mirpoker.jpg',
+        width: 400,
+        height: 400,
+        alt: 'Mahdi Mirshafiee',
+      },
+    ],
+  },
+}
+
 export default async function About() {
   const age = getAge(new Date(2004, 8, 27))
   const expYears = getYearsOfExperience(2024)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Mahdi Mirshafiee',
+    url: 'https://mahdimirshafiee.com',
+    image: 'https://mahdimirshafiee.com/photos/mirpoker.jpg',
+    jobTitle: 'Full-Stack Web Developer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Self-Employed',
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Mashhad',
+      addressCountry: 'IR',
+    },
+    sameAs: [
+      'https://github.com/MahdiMirshafiee',
+      'https://linkedin.com/in/mahdi-mirshafiee',
+      'https://x.com/mirpoker',
+    ],
+    knowsAbout: ['TypeScript', 'Next.js', 'React', 'Node.js', 'Full-Stack Web Development'],
+  }
+
   return (
-    <main className="relative mx-auto mt-20 w-full max-w-6xl px-6 md:px-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <main className="relative mx-auto mt-20 w-full max-w-6xl px-6 md:px-16">
       <div>
         <section className="relative grid grid-cols-1 justify-items-center gap-x-6 lg:grid-cols-[1.2fr_1fr]">
           <div className="order-2 lg:order-0">
@@ -67,11 +120,11 @@ export default async function About() {
             <Slide delay={0.1}>
               <div>
                 <Image
-                  className="mb-4 max-h-105 min-h-96 rounded-2xl bg-top object-cover"
+                  className="mb-4 h-auto max-h-105 min-h-96 w-auto rounded-2xl bg-top object-cover"
                   src="/photos/mirpoker.jpg"
                   width={400}
                   height={400}
-                  alt="photo"
+                  alt="Mahdi Mirshafiee"
                   priority
                 />
 
@@ -120,5 +173,6 @@ export default async function About() {
       <Job />
       <Skills />
     </main>
+    </>
   )
 }

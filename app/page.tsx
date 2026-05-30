@@ -1,7 +1,23 @@
 // app/page.tsx
+import type { Metadata } from 'next'
 import { Slide } from '@/animation/Slide'
 import Social from '@/module/Social'
 import Terminal from '@/components/Terminal'
+
+export const metadata: Metadata = {
+  title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
+  description:
+    'Welcome to my portfolio. I\'m Mahdi Mirshafiee, a full-stack web developer building modern web applications with TypeScript, Next.js, and React.',
+  alternates: {
+    canonical: 'https://mahdimirshafiee.com',
+  },
+  openGraph: {
+    title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
+    description:
+      'Full-stack web developer building modern web applications with TypeScript, Next.js, and React.',
+    url: 'https://mahdimirshafiee.com',
+  },
+}
 
 export default function HomePage() {
   return (

@@ -1,8 +1,23 @@
-'use client'
+import type { Metadata } from 'next'
 import { Slide } from '@/animation/Slide'
 import { projects } from '@/data/projects'
 import { BiLogoGithub } from 'react-icons/bi'
 import { RiLinkM } from 'react-icons/ri'
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    'A collection of projects built by Mahdi Mirshafiee — from side experiments to production-ready web applications using React, Next.js, and TypeScript.',
+  alternates: {
+    canonical: 'https://mahdimirshafiee.com/projects',
+  },
+  openGraph: {
+    title: 'Projects | Mahdi Mirshafiee',
+    description:
+      'Explore projects built by Mahdi Mirshafiee using React, Next.js, TypeScript, and more.',
+    url: 'https://mahdimirshafiee.com/projects',
+  },
+}
 
 function ProjectsPage() {
   return (
