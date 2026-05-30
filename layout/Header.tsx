@@ -3,12 +3,14 @@
 import React, { useState } from 'react'
 import Magnetic from '@/animation/Magnetic'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Theme from '../module/Theme'
 import { data } from '@/data/navLink'
 import Image from 'next/image'
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <header className="relative border-b border-gray-200 lg:min-h-15 dark:border-zinc-700">
@@ -30,16 +32,23 @@ const Header: React.FC = () => {
         </div>
 
         <ul className="hidden items-center space-x-8 md:flex">
-          {data.map((link, id) => (
-            <li className="relative" key={id}>
-              <Link
-                href={link.href}
-                className="font-[gitlabmono] text-lg font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-slate-500 after:transition-all after:duration-500 after:content-[''] hover:text-slate-500 hover:after:w-full"
-              >
-                {link.title}
-              </Link>
-            </li>
-          ))}
+          {data.map((link, id) => {
+            const isActive = pathname === link.href
+            return (
+              <li className="relative" key={id}>
+                <Link
+                  href={link.href}
+                  className={`font-[gitlabmono] text-lg font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-500 after:content-[''] ${
+                    isActive
+                      ? 'text-slate-500 after:w-full after:bg-slate-500'
+                      : 'after:w-0 after:bg-slate-500'
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="flex items-center gap-3">
@@ -65,17 +74,22 @@ const Header: React.FC = () => {
       {menuOpen && (
         <div className="border-t border-gray-200 bg-white md:hidden dark:border-zinc-700 dark:bg-stone-900">
           <ul className="flex flex-col gap-4 px-4 py-4">
-            {data.map((link, id) => (
-              <li key={id}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block font-[gitlabmono] text-lg font-medium transition-colors duration-300 hover:text-slate-500"
-                >
-                  {link.title}
-                </Link>
-              </li>
-            ))}
+            {data.map((link, id) => {
+              const isActive = pathname === link.href
+              return (
+                <li key={id}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block font-[gitlabmono] text-lg font-medium transition-colors duration-300 hover:text-slate-500 ${
+                      isActive ? 'text-slate-500' : ''
+                    }`}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}
