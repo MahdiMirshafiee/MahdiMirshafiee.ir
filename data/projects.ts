@@ -7,24 +7,18 @@ import {
   SiReact,
   SiTypescript,
 } from 'react-icons/si'
+import type { IconType } from 'react-icons'
+
+interface TechStackItem {
+  icon: IconType | null
+  color: string | null
+}
 
 interface TechStack {
-  lang: {
-    icon: string | null
-    color: string | null
-  }
-  backend: {
-    icon: string | null
-    color: string | null
-  }
-  frontend: {
-    icon: string | null
-    color: string | null
-  }
-  db: {
-    icon: string | null
-    color: string | null
-  }
+  lang: TechStackItem
+  backend: TechStackItem
+  frontend: TechStackItem
+  db: TechStackItem
 }
 
 interface Project {
