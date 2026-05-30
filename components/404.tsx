@@ -1,19 +1,20 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Slide } from '@/animation/Slide'
 
 const LINES = [
   { label: 'Error', value: '404 — Page Not Found' },
-  { label: 'Path', value: 'unknown' },
   { label: 'Status', value: 'Lost in the void' },
   { label: 'Suggestion', value: 'Go back home' },
 ]
 
-const COMMAND = 'find . -name "this-page"'
-
 export default function NotFound() {
+  const pathname = usePathname()
+  const COMMAND = `cd ~${pathname}`
+
   const [typedCommand, setTypedCommand] = useState('')
   const [visibleLines, setVisibleLines] = useState(0)
   const [showActions, setShowActions] = useState(false)
@@ -43,7 +44,7 @@ export default function NotFound() {
     }, 60)
 
     return () => clearInterval(commandInterval)
-  }, [])
+  }, [COMMAND])
 
   return (
     <main className="mx-auto flex min-h-[70vh] max-w-7xl flex-col items-center justify-center px-6 md:px-16">
@@ -86,6 +87,16 @@ export default function NotFound() {
                     </span>
                   </div>
                 ))}
+                {visibleLines >= 1 && (
+                  <div>
+                    <span className="text-slate-500 dark:text-slate-400">
+                      Path:{' '}
+                    </span>
+                    <span className="text-amber-500 dark:text-amber-400">
+                      {pathname}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
