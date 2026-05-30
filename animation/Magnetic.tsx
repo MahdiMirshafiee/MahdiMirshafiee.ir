@@ -3,15 +3,16 @@
 import React from 'react'
 import { motion, useMotionValue, animate } from 'framer-motion'
 
-const Magnetic: React.FC<{
+interface MagneticProps {
   children: React.ReactNode
   className?: string
   strength?: number
   maxMove?: number
   scale?: number
-  transitionDuration?: number
   resetDuration?: number
-}> = ({
+}
+
+const Magnetic: React.FC<MagneticProps> = ({
   children,
   className = '',
   strength = 0.2,
