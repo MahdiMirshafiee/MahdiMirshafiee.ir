@@ -2,8 +2,9 @@ import { Slide } from '@/animation/Slide'
 import { backendSkills, frontendSkills } from '@/data/skills'
 import { SiFrontendmentor } from 'react-icons/si'
 import { CiServer } from 'react-icons/ci'
+import { JSX } from 'react'
 
-function Skills() {
+function Skills(): JSX.Element {
   return (
     <section className="mt-32">
       <Slide delay={0.16}>
@@ -24,7 +25,9 @@ function Skills() {
 
             <div className="m-5 mt-0 flex flex-wrap gap-3">
               {frontendSkills.map((skill) => {
-                const Icon = skill.icon
+                const Icon = skill.icon as React.ComponentType<{
+                  className?: string
+                }>
                 return (
                   <a
                     key={skill.id}
@@ -49,7 +52,9 @@ function Skills() {
 
             <div className="m-5 mt-0 flex flex-wrap gap-3 md:grid-cols-4">
               {backendSkills.map((skill) => {
-                const Icon = skill.icon
+                const Icon = skill.icon as React.ComponentType<{
+                  className?: string
+                }>
                 return (
                   <a
                     key={skill.id}
