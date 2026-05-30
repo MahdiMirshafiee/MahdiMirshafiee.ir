@@ -19,10 +19,24 @@ function ProjectsPage() {
       <Slide delay={0.1}>
         <div className="m-5 grid min-h-auto grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:m-0">
           {projects.map((project) => {
-            const DBIcon = project.techstack.db?.icon
-            const BIcon = project.techstack.backend?.icon
-            const FIcon = project.techstack.frontend?.icon
-            const LIcon = project.techstack.lang?.icon
+            const DBIcon = project.techstack.db?.icon as React.ComponentType<{
+              color: string
+              size: number
+            }>
+            const BIcon = project.techstack.backend
+              ?.icon as React.ComponentType<{
+              color: string
+              size: number
+            }>
+            const FIcon = project.techstack.frontend
+              ?.icon as React.ComponentType<{
+              color: string
+              size: number
+            }>
+            const LIcon = project.techstack.lang?.icon as React.ComponentType<{
+              color: string
+              size: number
+            }>
             return (
               <div
                 key={project.id}
@@ -63,22 +77,25 @@ function ProjectsPage() {
                     <div className="flex gap-1">
                       {LIcon ? (
                         <LIcon
-                          color={project.techstack.lang?.color}
+                          color={project.techstack.lang?.color ?? ''}
                           size={24}
                         />
                       ) : null}
                       {FIcon ? (
                         <FIcon
-                          color={project.techstack.frontend?.color}
+                          color={project.techstack.frontend?.color ?? ''}
                           size={24}
                         />
                       ) : null}
                       {DBIcon ? (
-                        <DBIcon color={project.techstack.db?.color} size={24} />
+                        <DBIcon
+                          color={project.techstack.db?.color ?? ''}
+                          size={24}
+                        />
                       ) : null}
                       {BIcon ? (
                         <BIcon
-                          color={project.techstack.backend?.color}
+                          color={project.techstack.backend?.color ?? ''}
                           size={24}
                         />
                       ) : null}
