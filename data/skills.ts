@@ -9,8 +9,16 @@ import { FaReact, FaCss3, FaHtml5 } from 'react-icons/fa6'
 import { RiTailwindCssFill } from 'react-icons/ri'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import { FaNodeJs } from 'react-icons/fa'
+import type { IconType } from 'react-icons'
 
-export const frontendSkills = [
+interface Skill {
+  id: number
+  href: string
+  label: string
+  icon: IconType
+}
+
+export const frontendSkills: Skill[] = [
   {
     id: 1,
     href: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
@@ -49,7 +57,7 @@ export const frontendSkills = [
   },
 ]
 
-export const backendSkills = [
+export const backendSkills: Skill[] = [
   {
     id: 1,
     href: 'https://www.typescriptlang.org/',

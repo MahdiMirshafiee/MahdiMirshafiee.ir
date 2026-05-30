@@ -6,8 +6,16 @@ import {
 } from "react-icons/bi";
 import { PiLinktreeLogoBold } from "react-icons/pi";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 
-export const socialLinks = [
+interface SocialLink {
+  id: number
+  name: string
+  url: string
+  icon: IconType
+}
+
+export const socialLinks: SocialLink[] = [
   {
     id: 1,
     name: "GitHub",

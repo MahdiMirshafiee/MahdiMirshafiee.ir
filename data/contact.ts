@@ -8,8 +8,22 @@ import {
   FaTelegram,
   FaXTwitter,
 } from 'react-icons/fa6'
+import type { IconType } from 'react-icons'
 
-export const contactMethods = [
+interface ContactMethod {
+  icon: IconType
+  label: string
+  value: string
+  href: string
+}
+
+interface SocialContact {
+  icon: IconType
+  href: string
+  label: string
+}
+
+export const contactMethods: ContactMethod[] = [
   {
     icon: FaEnvelope,
     label: 'Email',
@@ -30,7 +44,7 @@ export const contactMethods = [
   },
 ]
 
-export const socialContact = [
+export const socialContact: SocialContact[] = [
   {
     icon: FaGithub,
     href: 'https://github.com/MahdiMirshafiee',
