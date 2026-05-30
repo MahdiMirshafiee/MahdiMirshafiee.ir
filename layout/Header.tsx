@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Magnetic from '@/animation/Magnetic'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { AnimatePresence, motion } from 'framer-motion'
 import Theme from '../module/Theme'
 import { data } from '@/data/navLink'
 import Image from 'next/image'
@@ -71,28 +72,42 @@ const Header: React.FC = () => {
         </div>
       </nav>
 
-      {menuOpen && (
-        <div className="border-t border-gray-200 bg-white md:hidden dark:border-zinc-700 dark:bg-stone-900">
-          <ul className="flex flex-col gap-4 px-4 py-4">
-            {data.map((link, id) => {
-              const isActive = pathname === link.href
-              return (
-                <li key={id}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`block font-[gitlabmono] text-lg font-medium transition-colors duration-300 hover:text-slate-500 ${
-                      isActive ? 'text-slate-500' : ''
-                    }`}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden border-t border-gray-200 bg-white md:hidden dark:border-zinc-700 dark:bg-stone-900"
+          >
+            <ul className="flex flex-col gap-4 px-4 py-4">
+              {data.map((link, id) => {
+                const isActive = pathname === link.href
+                return (
+                  <motion.li
+                    key={id}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: id * 0.05 }}
                   >
-                    {link.title}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      )}
+                    <Link
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`block font-[gitlabmono] text-lg font-medium transition-colors duration-300 hover:text-slate-500 ${
+                        isActive ? 'text-slate-500' : ''
+                      }`}
+                    >
+                      {link.title}
+                    </Link>
+                  </motion.li>
+                )
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
