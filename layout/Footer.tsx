@@ -1,17 +1,19 @@
-import Image from "next/image";
-import React from "react";
-import nextjslogo from "@/public/icons/next.svg";
+import Image from 'next/image'
+import React from 'react'
+import nextjslogo from '@/public/icons/next.svg'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-gray-200 dark:border-zinc-700 mt-44 lg:min-h-30 min-h-full relative">
-      <div className="max-w-7xl mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16">
-        <div className="flex flex-col items-center ">
+    <footer className="relative mt-44 min-h-full border-t border-gray-200 lg:min-h-30 dark:border-zinc-700">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-y-4 px-6 py-16 md:px-16 lg:flex-row lg:justify-between">
+        <div className="flex flex-col items-center">
           <div className="flex">
             <h3 className="font-incognito mr-1">Built with:</h3>
             <a
               href="https://nextjs.org"
-              className="flex items-center  hover:underline"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center hover:underline"
             >
               <Image
                 src={nextjslogo}
@@ -25,15 +27,14 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:items-end items-center lg:text-start text-center">
+        <div className="flex flex-col items-center text-center lg:items-end lg:text-start">
           <small className="text-zinc-500">
-            Copyright &copy; MIR {new Date().getFullYear()} All
-            rights Reserved
+            Copyright &copy; MIR {new Date().getFullYear()} All rights Reserved
           </small>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
