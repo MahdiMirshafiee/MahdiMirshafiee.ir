@@ -84,7 +84,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={`${incognito.variable} ${gitlabmono.variable} bg-white text-gray-600 dark:bg-stone-900 dark:text-slate-300`}
+        className={`${incognito.variable} ${gitlabmono.variable} bg-stone-100 text-gray-600 dark:bg-stone-900 dark:text-slate-300`}
       >
         <ThemeProvider
           attribute="class"
