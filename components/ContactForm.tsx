@@ -106,7 +106,7 @@ export default function ContactForm() {
 
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="space-y-5 md:space-y-9"
+                className="space-y-2"
               >
                 <div>
                   <label className="mb-1.5 block text-xs font-medium text-zinc-600 sm:mb-2 sm:text-sm dark:text-neutral-400">
@@ -117,11 +117,9 @@ export default function ContactForm() {
                     className="w-full rounded-xl border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 transition-all focus:border-zinc-400/50 focus:ring-1 focus:ring-zinc-400/20 focus:outline-none sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:border-gray-300/50 dark:focus:ring-gray-300/20"
                     placeholder="Mahdi Mirshafiee"
                   />
-                  {errors.name && (
-                    <p className="mt-1.5 text-xs text-red-400 sm:mt-2 sm:text-sm">
-                      {errors.name.message}
-                    </p>
-                  )}
+                  <p className="mt-1.5 min-h-[1.25rem] text-xs text-red-400 sm:mt-2 sm:min-h-[1.375rem] sm:text-sm">
+                    {errors.name?.message}
+                  </p>
                 </div>
 
                 <div>
@@ -134,11 +132,9 @@ export default function ContactForm() {
                     className="w-full rounded-xl border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 transition-all focus:border-zinc-400/50 focus:ring-1 focus:ring-zinc-400/20 focus:outline-none sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:border-gray-300/50 dark:focus:ring-gray-300/20"
                     placeholder="mirshafieemahdi001@gmail.com"
                   />
-                  {errors.email && (
-                    <p className="mt-1.5 text-xs text-red-400 sm:mt-2 sm:text-sm">
-                      {errors.email.message}
-                    </p>
-                  )}
+                  <p className="mt-1.5 min-h-[1.25rem] text-xs text-red-400 sm:mt-2 sm:min-h-[1.375rem] sm:text-sm">
+                    {errors.email?.message}
+                  </p>
                 </div>
 
                 <div>
@@ -151,11 +147,9 @@ export default function ContactForm() {
                     className="w-full resize-none rounded-xl border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 transition-all focus:border-zinc-400/50 focus:ring-1 focus:ring-zinc-400/20 focus:outline-none sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:border-gray-300/50 dark:focus:ring-gray-300/20"
                     placeholder="Tell me about your project or opportunity..."
                   />
-                  {errors.message && (
-                    <p className="mt-1.5 text-xs text-red-400 sm:mt-2 sm:text-sm">
-                      {errors.message.message}
-                    </p>
-                  )}
+                  <p className="mt-1.5 min-h-[1.25rem] text-xs text-red-400 sm:mt-2 sm:min-h-[1.375rem] sm:text-sm">
+                    {errors.message?.message}
+                  </p>
                 </div>
 
                 <button
@@ -218,7 +212,7 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 bg-white p-4 backdrop-blur-sm sm:p-6 dark:border-neutral-800 dark:bg-neutral-900/60">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-4 backdrop-blur-sm sm:p-6.5 dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-4 text-base font-semibold text-zinc-800 sm:mb-5 sm:text-lg dark:text-neutral-100">
                 Connect Online
               </h2>
