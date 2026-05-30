@@ -8,6 +8,34 @@ import {
   SiTypescript,
 } from 'react-icons/si'
 
+interface TechStack {
+  lang: {
+    icon: string | null
+    color: string | null
+  }
+  backend: {
+    icon: string | null
+    color: string | null
+  }
+  frontend: {
+    icon: string | null
+    color: string | null
+  }
+  db: {
+    icon: string | null
+    color: string | null
+  }
+}
+
+interface Project {
+  id: number
+  title: string
+  description: string
+  demolink: string | null
+  ghlink: string
+  techstack: TechStack
+}
+
 const colorIcon = {
   js: '#F7E026',
   ts: '#367CC8',
@@ -20,7 +48,7 @@ const colorIcon = {
   nest: '#E12854',
 }
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: 1,
     title: 'Clone of Digikala.com API',
