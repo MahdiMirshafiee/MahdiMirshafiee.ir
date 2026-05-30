@@ -1,5 +1,5 @@
 // components/MagneticHeader.tsx
-'use client' // برای استفاده از هوک‌های Framer Motion و Client Components
+'use client'
 
 import React, { useState } from 'react'
 import Magnetic from '@/animation/Magnetic'
@@ -12,9 +12,9 @@ const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="relative border-b border-gray-200 dark:border-zinc-700 lg:min-h-15 ">
+    <header className="relative border-b border-gray-200 lg:min-h-15 dark:border-zinc-700">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <div className="text-2xl font-extrabold flex">
+        <div className="flex text-2xl font-extrabold">
           <Magnetic strength={0.3} maxMove={25} scale={1.1}>
             <Link className="font-[incognito] font-semibold" href="/">
               <Image
@@ -30,7 +30,6 @@ const Header: React.FC = () => {
           </Magnetic>
         </div>
 
-        {/* Desktop Nav */}
         <ul className="hidden items-center space-x-8 md:flex">
           {data.map((link, id) => (
             <li className="relative" key={id}>
@@ -44,10 +43,8 @@ const Header: React.FC = () => {
           ))}
         </ul>
 
-        {/* Theme + Hamburger */}
         <div className="flex items-center gap-3">
           <Theme />
-          {/* Hamburger - فقط موبایل */}
           <button
             className="flex flex-col gap-1.5 p-2 md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -66,7 +63,6 @@ const Header: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="border-t border-gray-200 bg-white md:hidden dark:border-zinc-700 dark:bg-stone-900">
           <ul className="flex flex-col gap-4 px-4 py-4">
