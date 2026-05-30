@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     'Get in touch with Mahdi Mirshafiee. Available for full-stack web development opportunities, collaborations, and freelance projects.',
   alternates: {
-    canonical: 'https://mahdimirshafiee.com/contact',
+    canonical: 'https://mahdimirshafiee.ir/contact',
   },
   openGraph: {
     title: 'Contact | Mahdi Mirshafiee',
     description:
       'Get in touch with Mahdi Mirshafiee for web development opportunities and collaborations.',
-    url: 'https://mahdimirshafiee.com/contact',
+    url: 'https://mahdimirshafiee.ir/contact',
   },
 }
 

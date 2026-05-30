@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   description:
     'Learn more about Mahdi Mirshafiee — a full-stack web developer from Mashhad, Iran, specializing in TypeScript, Next.js, React, and Node.js.',
   alternates: {
-    canonical: 'https://mahdimirshafiee.com/about',
+    canonical: 'https://mahdimirshafiee.ir/about',
   },
   openGraph: {
     title: 'About | Mahdi Mirshafiee',
     description:
       'Full-stack web developer from Mashhad, Iran. Specializing in TypeScript, Next.js, React, and Node.js.',
-    url: 'https://mahdimirshafiee.com/about',
+    url: 'https://mahdimirshafiee.ir/about',
     images: [
       {
         url: '/photos/mirpoker.jpg',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function About() {
+export default function About() {
   const age = getAge(new Date(2004, 8, 27))
   const expYears = getYearsOfExperience(2024)
 
@@ -39,8 +39,8 @@ export default async function About() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Mahdi Mirshafiee',
-    url: 'https://mahdimirshafiee.com',
-    image: 'https://mahdimirshafiee.com/photos/mirpoker.jpg',
+    url: 'https://mahdimirshafiee.ir',
+    image: 'https://mahdimirshafiee.ir/photos/mirpoker.jpg',
     jobTitle: 'Full-Stack Web Developer',
     worksFor: {
       '@type': 'Organization',

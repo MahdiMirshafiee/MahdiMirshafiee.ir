@@ -6,7 +6,7 @@ import Footer from '@/layout/Footer'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 import type { Metadata } from 'next'
 
-const BASE_URL = 'https://mahdimirshafiee.com'
+const BASE_URL = 'https://mahdimirshafiee.ir'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

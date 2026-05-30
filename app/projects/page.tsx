@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     'A collection of projects built by Mahdi Mirshafiee — from side experiments to production-ready web applications using React, Next.js, and TypeScript.',
   alternates: {
-    canonical: 'https://mahdimirshafiee.com/projects',
+    canonical: 'https://mahdimirshafiee.ir/projects',
   },
   openGraph: {
     title: 'Projects | Mahdi Mirshafiee',
     description:
       'Explore projects built by Mahdi Mirshafiee using React, Next.js, TypeScript, and more.',
-    url: 'https://mahdimirshafiee.com/projects',
+    url: 'https://mahdimirshafiee.ir/projects',
   },
 }
 
