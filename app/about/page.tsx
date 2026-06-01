@@ -84,13 +84,12 @@ export default function About() {
                 <div className="space-y-4 text-justify leading-relaxed text-zinc-600 dark:text-zinc-400">
                   <p>
                     I&apos;m a {age}-year-old software developer specializing in
-                    full-stack web development, currently pursuing a
-                    Bachelor&apos;s degree in Computer Engineering in Mashhad,
-                    Iran.
+                    full-stack web development, currently studying Computer
+                    Engineering in Mashhad, Iran.
                   </p>
                   <p>
-                    With {expYears}+ years of experience, I primarily work
-                    within the JavaScript ecosystem, using technologies such as
+                    With {expYears}+ years of experience, My stack revolves
+                    around the JavaScript ecosystem, using technologies such as
                     TypeScript, Next.js, React, and Node.js. I&apos;m passionate
                     about building performant, scalable applications and
                     continuously improving my skills through learning and
@@ -103,9 +102,8 @@ export default function About() {
                 <div className="mt-4 text-justify leading-relaxed text-zinc-600 dark:text-zinc-400">
                   <p>
                     I enjoy open-source projects, knowledge sharing, and
-                    collaborating with developers who are building meaningful
-                    products that make a real impact or sometimes just building
-                    things for fun.
+                    collaborating with developers building meaningful things,
+                    whether it&apos;s solving real problems or just having fun.
                   </p>
                 </div>
               </Slide>
@@ -113,10 +111,8 @@ export default function About() {
               <Slide delay={0.3}>
                 <div className="mt-8 text-justify leading-relaxed text-zinc-600 dark:text-zinc-400">
                   <p>
-                    Outside of software development, I&apos;m interested in
-                    cybersecurity, financial markets, and emerging technologies.
-                    I enjoy staying up to date with the latest developments in
-                    tech and spending my free time reading or gaming.
+                    Outside of work, I&apos;m into cybersecurity, financial
+                    markets, and emerging tech. I also enjoy reading and gaming.
                   </p>
                 </div>
               </Slide>
