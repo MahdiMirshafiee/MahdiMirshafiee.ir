@@ -7,7 +7,7 @@ import { RiLinkM } from 'react-icons/ri'
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'A collection of projects built by Mahdi Mirshafiee — from side experiments to production-ready web applications using React, Next.js, and TypeScript.',
+    'A collection of projects built by Mahdi Mirshafiee: from side experiments to production-ready web applications using React, Next.js, and TypeScript.',
   alternates: {
     canonical: 'https://mahdimirshafiee.ir/projects',
   },
