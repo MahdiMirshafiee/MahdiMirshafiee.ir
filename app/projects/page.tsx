@@ -27,7 +27,7 @@ function ProjectsPage() {
           Made by Me
         </h1>
         <p className="font-incognito mx-auto max-w-xl text-lg dark:text-neutral-400">
-          A collection of projects I&apos;ve built — from side experiments to
+          A collection of projects I&apos;ve built: from side experiments to
           production-ready apps.
         </p>
       </Slide>
