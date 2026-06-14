@@ -152,7 +152,7 @@ export const projects: Project[] = [
     title: 'Quoty',
     description:
       'A minimal web app that serves random quotes from notable figures.',
-    demolink: 'https://quotyty.vercel.app/',
+    demolink: 'https://quoty.ir',
     ghlink: 'https://github.com/MahdiMirshafiee/Quoty',
     techstack: {
       lang: {
@@ -178,7 +178,7 @@ export const projects: Project[] = [
     title: 'Shop with Basket',
     description:
       'A web application consuming product data from the FakeStoreAPI to display products with shopping basket functionality.',
-    demolink: 'https://poker-shop.vercel.app/products',
+    demolink: 'https://poker-shop.vercel.app',
     ghlink: 'https://github.com/MahdiMirshafiee/PokerShop',
     techstack: {
       lang: {
