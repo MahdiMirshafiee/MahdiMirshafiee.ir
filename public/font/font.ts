@@ -1,4 +1,11 @@
 import localFont from 'next/font/local'
+import { Vazirmatn } from 'next/font/google'
+
+export const vazirmatn = Vazirmatn({
+  subsets: ['arabic', 'latin'],
+  variable: '--font-vazirmatn',
+  display: 'swap',
+})
 
 export const incognito = localFont({
   src: [

@@ -31,6 +31,9 @@ export function buildMetadata({
   path = '',
 }: PageSeoOptions): Metadata {
   const url = `${BASE_URL}${path}`
+  // subpage titles are short ("About"); brand them for og/twitter like the
+  // document title template does — the homepage already carries the brand
+  const socialTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`
 
   return {
     title,
@@ -43,12 +46,12 @@ export function buildMetadata({
       locale: 'en_US',
       url,
       siteName: SITE_NAME,
-      title,
+      title: socialTitle,
       description,
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: socialTitle,
       description,
     },
   }

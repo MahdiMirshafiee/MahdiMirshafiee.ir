@@ -1,15 +1,16 @@
 import Header from '@/layout/Header'
 import './globals.css'
-import { gitlabmono, incognito } from '@/public/font/font'
+import { gitlabmono, incognito, vazirmatn } from '@/public/font/font'
 import Footer from '@/layout/Footer'
 import { ThemeProvider } from '@/providers/ThemeProvider'
+import { LanguageProvider } from '@/providers/LanguageProvider'
 import type { Metadata } from 'next'
 import { BASE_URL, PERSON_ALTERNATE_NAMES_FA } from '@/utils/seo'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
+    default: 'Mahdi Mirshafiee — Full-Stack Web Developer',
     template: '%s | Mahdi Mirshafiee',
   },
   description:
@@ -34,13 +35,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'Mahdi Mirshafiee',
-    title: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
+    title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
     description:
       'Full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
+    title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
     description:
       'Full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',
     creator: '@mirpoker',
@@ -75,16 +76,23 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={`${incognito.variable} ${gitlabmono.variable} bg-stone-100 text-gray-600 dark:bg-stone-900 dark:text-slate-300`}
+        className={`${incognito.variable} ${gitlabmono.variable} ${vazirmatn.variable} bg-stone-100 text-gray-600 dark:bg-stone-900 dark:text-slate-300`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var l=localStorage.getItem('lang');if(l==='fa'){var d=document.documentElement;d.lang='fa';d.dir='rtl'}}catch(e){}})()`,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
+          <LanguageProvider>
+            <Header />
+            {children}
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

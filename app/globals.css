@@ -24,6 +24,25 @@ h4 {
   font-family: var(--incognito), 'Inter', sans-serif;
 }
 
+/* Persian (RTL): use Vazirmatn for Persian glyphs and neutralize
+   letter-spacing, which breaks Arabic-script letter joining */
+html[dir='rtl'] body {
+  font-family: var(--font-vazirmatn), var(--incognito), ui-sans-serif,
+    system-ui, sans-serif;
+}
+
+html[dir='rtl'] h1,
+html[dir='rtl'] h2,
+html[dir='rtl'] h3,
+html[dir='rtl'] h4,
+html[dir='rtl'] .font-incognito {
+  font-family: var(--font-vazirmatn), var(--incognito), 'Inter', sans-serif;
+}
+
+html[dir='rtl'] * {
+  letter-spacing: normal !important;
+}
+
 ::selection {
   background-color: var(--text-primary);
   color: var(--bg-page);

@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import SunIcon from '@/public/icons/SunIcon'
 import MoonIcon from '@/public/icons/MoonIcon'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 export default function Theme() {
   const { resolvedTheme, setTheme } = useTheme()
+  const { t } = useLanguage()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function Theme() {
       type="button"
       onClick={() => setTheme(isLight ? 'dark' : 'light')}
       className={`rounded-full border border-zinc-200 bg-zinc-100 p-2 text-amber-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-cyan-300`}
-      aria-label="Toggle Theme"
+      aria-label={t.aria.toggleTheme}
     >
       {isLight ? <SunIcon /> : <MoonIcon />}
     </button>

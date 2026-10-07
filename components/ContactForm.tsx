@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -14,22 +14,35 @@ import {
 import { contactMethods, socialContact } from '@/data/contact'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MotionDiv } from '@/animation/Motion'
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name is required').max(100, 'Name is too long'),
-  email: z.string().email('Invalid email').max(100, 'Email is too long'),
-  message: z
-    .string()
-    .min(10, 'Message is too short')
-    .max(5000, 'Message is too long'),
-})
-
-type ContactFormValues = z.infer<typeof contactSchema>
+import { useLanguage, usePageTitle } from '@/providers/LanguageProvider'
 
 type ToastState = { type: 'success' | 'error'; message: string } | null
 
 export default function ContactForm() {
+  const { t } = useLanguage()
+  usePageTitle('contact')
   const [toast, setToast] = useState<ToastState>(null)
+
+  const contactSchema = useMemo(
+    () =>
+      z.object({
+        name: z
+          .string()
+          .min(2, t.contact.errors.nameRequired)
+          .max(100, t.contact.errors.nameTooLong),
+        email: z
+          .string()
+          .email(t.contact.errors.invalidEmail)
+          .max(100, t.contact.errors.emailTooLong),
+        message: z
+          .string()
+          .min(10, t.contact.errors.messageTooShort)
+          .max(5000, t.contact.errors.messageTooLong),
+      }),
+    [t]
+  )
+
+  type ContactFormValues = z.infer<typeof contactSchema>
 
   const {
     register,
@@ -63,16 +76,13 @@ export default function ContactForm() {
           throw new Error(result?.error || 'Failed to send message')
         }
 
-        showToast(
-          'success',
-          "Message sent successfully. I'll get back to you soon."
-        )
+        showToast('success', t.contact.toastSuccess)
         reset()
       } catch {
-        showToast('error', 'Failed to send message. Please try again later.')
+        showToast('error', t.contact.toastError)
       }
     },
-    [reset, showToast]
+    [reset, showToast, t]
   )
 
   return (
@@ -84,11 +94,10 @@ export default function ContactForm() {
           className="mb-10 text-center sm:mb-16"
         >
           <h1 className="mb-3 text-3xl font-bold sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl dark:text-neutral-100">
-            Get In Touch
+            {t.contact.h1}
           </h1>
           <p className="font-incognito mx-auto max-w-xl text-base sm:text-lg dark:text-neutral-400">
-            Looking for a Web Developer? Let&apos;s connect and discuss how I
-            can contribute to your team.
+            {t.contact.sub}
           </p>
         </MotionDiv>
 
@@ -101,7 +110,7 @@ export default function ContactForm() {
           >
             <div className="rounded-2xl border border-zinc-200 bg-white p-4 backdrop-blur-sm sm:p-6 md:p-8 dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-4 text-base font-semibold text-zinc-800 sm:mb-6 sm:text-xl dark:text-neutral-100">
-                Send a Message
+                {t.contact.sendMessage}
               </h2>
 
               <form
@@ -110,12 +119,12 @@ export default function ContactForm() {
               >
                 <div>
                   <label className="mb-1.5 block text-xs font-medium text-zinc-600 sm:mb-2 sm:text-sm dark:text-neutral-400">
-                    Your Name
+                    {t.contact.yourName}
                   </label>
                   <input
                     {...register('name')}
                     className="w-full rounded-xl border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 transition-all focus:border-zinc-400/50 focus:ring-1 focus:ring-zinc-400/20 focus:outline-none sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:border-gray-300/50 dark:focus:ring-gray-300/20"
-                    placeholder="Mahdi Mirshafiee"
+                    placeholder={t.contact.namePlaceholder}
                   />
                   <p className="mt-1.5 min-h-[1.25rem] text-xs text-red-400 sm:mt-2 sm:min-h-[1.375rem] sm:text-sm">
                     {errors.name?.message}
@@ -124,13 +133,14 @@ export default function ContactForm() {
 
                 <div>
                   <label className="mb-1.5 block text-xs font-medium text-zinc-600 sm:mb-2 sm:text-sm dark:text-neutral-400">
-                    Your Email
+                    {t.contact.yourEmail}
                   </label>
                   <input
                     {...register('email')}
                     type="email"
+                    dir="ltr"
                     className="w-full rounded-xl border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 transition-all focus:border-zinc-400/50 focus:ring-1 focus:ring-zinc-400/20 focus:outline-none sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:border-gray-300/50 dark:focus:ring-gray-300/20"
-                    placeholder="mirshafieemahdi001@gmail.com"
+                    placeholder={t.contact.emailPlaceholder}
                   />
                   <p className="mt-1.5 min-h-[1.25rem] text-xs text-red-400 sm:mt-2 sm:min-h-[1.375rem] sm:text-sm">
                     {errors.email?.message}
@@ -139,13 +149,13 @@ export default function ContactForm() {
 
                 <div>
                   <label className="mb-1.5 block text-xs font-medium text-zinc-600 sm:mb-2 sm:text-sm dark:text-neutral-400">
-                    Message
+                    {t.contact.message}
                   </label>
                   <textarea
                     {...register('message')}
                     rows={4}
                     className="w-full resize-none rounded-xl border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder-zinc-400 transition-all focus:border-zinc-400/50 focus:ring-1 focus:ring-zinc-400/20 focus:outline-none sm:px-4 sm:py-3 dark:border-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:border-gray-300/50 dark:focus:ring-gray-300/20"
-                    placeholder="Tell me about your project or opportunity..."
+                    placeholder={t.contact.messagePlaceholder}
                   />
                   <p className="mt-1.5 min-h-[1.25rem] text-xs text-red-400 sm:mt-2 sm:min-h-[1.375rem] sm:text-sm">
                     {errors.message?.message}
@@ -160,12 +170,12 @@ export default function ContactForm() {
                   {isSubmitting ? (
                     <>
                       <FaSpinner className="animate-spin text-sm" />
-                      Sending...
+                      {t.contact.sending}
                     </>
                   ) : (
                     <>
                       <FaPaperPlane className="text-sm" />
-                      Send Message
+                      {t.contact.send}
                     </>
                   )}
                 </button>
@@ -181,11 +191,17 @@ export default function ContactForm() {
           >
             <div className="rounded-2xl border border-zinc-200 bg-white p-4 backdrop-blur-sm sm:p-6 dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-4 text-base font-semibold text-zinc-800 sm:mb-5 sm:text-lg dark:text-neutral-100">
-                Direct Contact
+                {t.contact.directContact}
               </h2>
               <div className="space-y-2 sm:space-y-4">
                 {contactMethods.map((method) => {
                   const Icon = method.icon
+                  const label =
+                    t.contact.labels[method.label] ?? method.label
+                  const value =
+                    method.label === 'Location'
+                      ? t.contact.locationValue
+                      : method.value
                   return (
                     <a
                       key={method.label}
@@ -199,10 +215,13 @@ export default function ContactForm() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="mb-0.5 text-xs text-zinc-500 dark:text-neutral-500">
-                          {method.label}
+                          {label}
                         </p>
-                        <p className="truncate text-xs text-zinc-800 sm:text-sm dark:text-neutral-200">
-                          {method.value}
+                        <p
+                          className="truncate text-xs text-zinc-800 sm:text-sm dark:text-neutral-200"
+                          dir="auto"
+                        >
+                          {value}
                         </p>
                       </div>
                       <FaExternalLinkAlt className="text-xs text-zinc-400 transition-colors group-hover:text-zinc-600 dark:text-neutral-500 dark:group-hover:text-gray-400" />
@@ -214,7 +233,7 @@ export default function ContactForm() {
 
             <div className="rounded-2xl border border-zinc-200 bg-white p-4 backdrop-blur-sm sm:p-6.5 dark:border-neutral-800 dark:bg-neutral-900/60">
               <h2 className="mb-4 text-base font-semibold text-zinc-800 sm:mb-5 sm:text-lg dark:text-neutral-100">
-                Connect Online
+                {t.contact.connectOnline}
               </h2>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {socialContact.map((social) => {

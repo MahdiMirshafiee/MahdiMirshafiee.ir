@@ -1,19 +1,28 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Slide } from '@/animation/Slide'
+import { useLanguage, usePageTitle } from '@/providers/LanguageProvider'
 
-const LINES = [
-  { label: 'Error', value: '404 — Page Not Found' },
-  { label: 'Status', value: 'Lost in the void' },
-  { label: 'Suggestion', value: 'Go back home' },
-]
-
-export default function NotFound() {
+export default function NotFoundClient() {
+  const { t } = useLanguage()
+  usePageTitle('notFound')
   const pathname = usePathname()
   const COMMAND = `cd ~${pathname}`
+
+  const LINES = useMemo(
+    () => [
+      { label: t.notFound.errorLabel, value: t.notFound.errorValue },
+      { label: t.notFound.statusLabel, value: t.notFound.statusValue },
+      {
+        label: t.notFound.suggestionLabel,
+        value: t.notFound.suggestionValue,
+      },
+    ],
+    [t]
+  )
 
   const [typedCommand, setTypedCommand] = useState('')
   const [visibleLines, setVisibleLines] = useState(0)
@@ -44,14 +53,17 @@ export default function NotFound() {
     }, 60)
 
     return () => clearInterval(commandInterval)
-  }, [COMMAND])
+  }, [COMMAND, LINES])
 
   return (
     <main className="mx-auto flex min-h-[70vh] max-w-7xl flex-col items-center justify-center px-6 md:px-16">
       <Slide>
         <div className="w-80 max-w-xl">
           <div className="rounded-lg bg-gray-300 font-mono text-sm shadow-[5px_5px_rgba(100,116,139,0.4),10px_10px_rgba(100,116,139,0.3),15px_15px_rgba(100,116,139,0.2),20px_20px_rgba(100,116,139,0.1)] dark:bg-stone-800">
-            <div className="flex items-center gap-2 rounded-t-lg border-b border-gray-400/30 px-4 py-3 dark:border-zinc-700">
+            <div
+              className="flex items-center gap-2 rounded-t-lg border-b border-gray-400/30 px-4 py-3 dark:border-zinc-700"
+              dir="ltr"
+            >
               <span className="h-3 w-3 rounded-full bg-red-400" />
               <span className="h-3 w-3 rounded-full bg-yellow-400" />
               <span className="h-3 w-3 rounded-full bg-green-400" />
@@ -70,15 +82,15 @@ export default function NotFound() {
                 </span>
               </div>
 
-              <div className="mt-2 space-y-1.5 border-l-2 border-red-400/50 pl-4">
+              <div className="mt-2 space-y-1.5 border-s-2 border-red-400/50 ps-4">
                 {LINES.slice(0, visibleLines).map((line) => (
-                  <div key={line.label}>
+                  <div key={line.label} dir="auto">
                     <span className="text-slate-500 dark:text-slate-400">
                       {line.label}:{' '}
                     </span>
                     <span
                       className={
-                        line.label === 'Error'
+                        line.label === t.notFound.errorLabel
                           ? 'text-red-500 dark:text-red-400'
                           : 'text-gray-800 dark:text-neutral-200'
                       }
@@ -90,7 +102,7 @@ export default function NotFound() {
                 {visibleLines >= 1 && (
                   <div>
                     <span className="text-slate-500 dark:text-slate-400">
-                      Path:{' '}
+                      {t.notFound.pathLabel}:{' '}
                     </span>
                     <span className="text-amber-500 dark:text-amber-400">
                       {pathname}
