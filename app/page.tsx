@@ -3,12 +3,17 @@ import { Slide } from '@/animation/Slide'
 import Social from '@/module/Social'
 import Terminal from '@/components/Terminal'
 import JsonLd from '@/components/JsonLd'
-import { buildMetadata, BASE_URL, SOCIAL_PROFILE_URLS } from '@/utils/seo'
+import {
+  buildMetadata,
+  BASE_URL,
+  SOCIAL_PROFILE_URLS,
+  PERSON_ALTERNATE_NAMES_FA,
+} from '@/utils/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
+  title: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
   description:
-    "Welcome to my portfolio. I'm Mahdi Mirshafiee, a full-stack web developer building modern web applications with TypeScript, Next.js, and React.",
+    "Welcome to my portfolio. I'm Mahdi Mirshafiee (مهدی میرشفیعی), a full-stack web developer building modern web applications with TypeScript, Next.js, and React.",
 })
 
 const jsonLd = {
@@ -18,6 +23,7 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${BASE_URL}/#person`,
       name: 'Mahdi Mirshafiee',
+      alternateName: PERSON_ALTERNATE_NAMES_FA,
       url: BASE_URL,
       image: `${BASE_URL}/photos/mirpoker.jpg`,
       jobTitle: 'Full-Stack Web Developer',
@@ -49,6 +55,7 @@ const jsonLd = {
       '@type': 'WebSite',
       '@id': `${BASE_URL}/#website`,
       name: 'Mahdi Mirshafiee',
+      alternateName: PERSON_ALTERNATE_NAMES_FA,
       url: BASE_URL,
       description:
         'Portfolio of Mahdi Mirshafiee, a full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',

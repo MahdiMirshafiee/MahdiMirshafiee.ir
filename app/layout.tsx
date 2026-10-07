@@ -4,18 +4,19 @@ import { gitlabmono, incognito } from '@/public/font/font'
 import Footer from '@/layout/Footer'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 import type { Metadata } from 'next'
-import { BASE_URL } from '@/utils/seo'
+import { BASE_URL, PERSON_ALTERNATE_NAMES_FA } from '@/utils/seo'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Mahdi Mirshafiee — Full-Stack Web Developer',
+    default: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
     template: '%s | Mahdi Mirshafiee',
   },
   description:
-    'Mahdi Mirshafiee is a full-stack web developer specializing in TypeScript, Next.js, React, and Node.js. Based in Mashhad, Iran.',
+    'Mahdi Mirshafiee (مهدی میرشفیعی) is a full-stack web developer specializing in TypeScript, Next.js, React, and Node.js. Based in Mashhad, Iran.',
   keywords: [
     'Mahdi Mirshafiee',
+    ...PERSON_ALTERNATE_NAMES_FA,
     'full-stack developer',
     'web developer',
     'Next.js',
@@ -33,13 +34,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'Mahdi Mirshafiee',
-    title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
+    title: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
     description:
       'Full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
+    title: 'Mahdi Mirshafiee (مهدی میرشفیعی) — Full-Stack Web Developer',
     description:
       'Full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',
     creator: '@mirpoker',

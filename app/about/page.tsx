@@ -7,12 +7,12 @@ import Job from '@/components/Job'
 import Skills from '@/components/Skills'
 import { socialLinks } from '@/data/social'
 import { getAge, getYearsOfExperience } from '@/utils/getAge-Experience'
-import { buildMetadata, BASE_URL, SOCIAL_PROFILE_URLS } from '@/utils/seo'
+import { buildMetadata, BASE_URL, SOCIAL_PROFILE_URLS, PERSON_ALTERNATE_NAMES_FA } from '@/utils/seo'
 
 export const metadata: Metadata = buildMetadata({
   title: 'About',
   description:
-    'Learn more about Mahdi Mirshafiee — a full-stack web developer from Mashhad, Iran, specializing in TypeScript, Next.js, React, and Node.js.',
+    'Learn more about Mahdi Mirshafiee (مهدی میرشفیعی) — a full-stack web developer from Mashhad, Iran, specializing in TypeScript, Next.js, React, and Node.js.',
   path: '/about',
 })
 
@@ -24,6 +24,7 @@ export default function About() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Mahdi Mirshafiee',
+    alternateName: PERSON_ALTERNATE_NAMES_FA,
     url: BASE_URL,
     image: `${BASE_URL}/photos/mirpoker.jpg`,
     jobTitle: 'Full-Stack Web Developer',

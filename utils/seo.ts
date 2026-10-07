@@ -5,6 +5,11 @@ export const BASE_URL = 'https://www.mahdimirshafiee.ir'
 
 export const SITE_NAME = 'Mahdi Mirshafiee'
 
+export const PERSON_ALTERNATE_NAMES_FA = [
+  'مهدی میرشفیعی',
+  'سید مهدی میرشفیعی',
+]
+
 export const SOCIAL_PROFILE_URLS = [
   'https://github.com/MahdiMirshafiee',
   'https://linkedin.com/in/mahdi-mirshafiee',
