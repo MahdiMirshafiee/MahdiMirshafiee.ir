@@ -3,21 +3,14 @@ import { Slide } from '@/animation/Slide'
 import { projects } from '@/data/projects'
 import { BiLogoGithub } from 'react-icons/bi'
 import { RiLinkM } from 'react-icons/ri'
+import { buildMetadata } from '@/utils/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Projects',
   description:
     'A collection of projects built by Mahdi Mirshafiee: from side experiments to production-ready web applications using React, Next.js, and TypeScript.',
-  alternates: {
-    canonical: 'https://mahdimirshafiee.ir/projects',
-  },
-  openGraph: {
-    title: 'Projects | Mahdi Mirshafiee',
-    description:
-      'Explore projects built by Mahdi Mirshafiee using React, Next.js, TypeScript, and more.',
-    url: 'https://mahdimirshafiee.ir/projects',
-  },
-}
+  path: '/projects',
+})
 
 function ProjectsPage() {
   return (
@@ -83,7 +76,7 @@ function ProjectsPage() {
                 </div>
 
                 <div className="mt-0.5 flex flex-col">
-                  <h4 className="mb-2 font-semibold">{project.title}</h4>
+                  <h2 className="mb-2 font-semibold">{project.title}</h2>
                   <p className="font-[gitlabmono] text-sm text-gray-500">
                     {project.description}
                   </p>

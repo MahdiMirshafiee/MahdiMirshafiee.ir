@@ -7,29 +7,14 @@ import Job from '@/components/Job'
 import Skills from '@/components/Skills'
 import { socialLinks } from '@/data/social'
 import { getAge, getYearsOfExperience } from '@/utils/getAge-Experience'
+import { buildMetadata, BASE_URL, SOCIAL_PROFILE_URLS } from '@/utils/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'About',
   description:
     'Learn more about Mahdi Mirshafiee — a full-stack web developer from Mashhad, Iran, specializing in TypeScript, Next.js, React, and Node.js.',
-  alternates: {
-    canonical: 'https://mahdimirshafiee.ir/about',
-  },
-  openGraph: {
-    title: 'About | Mahdi Mirshafiee',
-    description:
-      'Full-stack web developer from Mashhad, Iran. Specializing in TypeScript, Next.js, React, and Node.js.',
-    url: 'https://mahdimirshafiee.ir/about',
-    images: [
-      {
-        url: '/photos/mirpoker.jpg',
-        width: 400,
-        height: 400,
-        alt: 'Mahdi Mirshafiee',
-      },
-    ],
-  },
-}
+  path: '/about',
+})
 
 export default function About() {
   const age = getAge(new Date(2004, 8, 27))
@@ -39,8 +24,8 @@ export default function About() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Mahdi Mirshafiee',
-    url: 'https://mahdimirshafiee.ir',
-    image: 'https://mahdimirshafiee.ir/photos/mirpoker.jpg',
+    url: BASE_URL,
+    image: `${BASE_URL}/photos/mirpoker.jpg`,
     jobTitle: 'Full-Stack Web Developer',
     worksFor: {
       '@type': 'Organization',
@@ -51,11 +36,7 @@ export default function About() {
       addressLocality: 'Mashhad',
       addressCountry: 'IR',
     },
-    sameAs: [
-      'https://github.com/MahdiMirshafiee',
-      'https://linkedin.com/in/mahdi-mirshafiee',
-      'https://x.com/mirpoker',
-    ],
+    sameAs: SOCIAL_PROFILE_URLS,
     knowsAbout: [
       'TypeScript',
       'Next.js',

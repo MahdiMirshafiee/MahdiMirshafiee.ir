@@ -4,8 +4,7 @@ import { gitlabmono, incognito } from '@/public/font/font'
 import Footer from '@/layout/Footer'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 import type { Metadata } from 'next'
-
-const BASE_URL = 'https://mahdimirshafiee.ir'
+import { BASE_URL } from '@/utils/seo'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -37,14 +36,6 @@ export const metadata: Metadata = {
     title: 'Mahdi Mirshafiee — Full-Stack Web Developer',
     description:
       'Full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',
-    images: [
-      {
-        url: '/photos/mirpoker.jpg',
-        width: 400,
-        height: 400,
-        alt: 'Mahdi Mirshafiee',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -52,7 +43,6 @@ export const metadata: Metadata = {
     description:
       'Full-stack web developer specializing in TypeScript, Next.js, React, and Node.js.',
     creator: '@mirpoker',
-    images: ['/photos/mirpoker.jpg'],
   },
   robots: {
     index: true,
