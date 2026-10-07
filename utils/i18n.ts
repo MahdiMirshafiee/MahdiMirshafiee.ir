@@ -137,7 +137,7 @@ const fa: Dictionary = {
     changeLanguage: 'تغییر زبان',
   },
   nav: {
-    '/about': 'درباره',
+    '/about': 'درباره من',
     '/projects': 'پروژه‌ها',
     '/contact': 'تماس',
   },
