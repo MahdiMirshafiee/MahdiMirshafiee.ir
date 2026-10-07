@@ -86,7 +86,7 @@ export default function ContactForm() {
   )
 
   return (
-    <section className="px-4 sm:px-6 md:px-16">
+    <section className="overflow-x-hidden px-4 sm:px-6 md:px-16">
       <div className="mx-auto mt-12 max-w-5xl sm:mt-20">
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
