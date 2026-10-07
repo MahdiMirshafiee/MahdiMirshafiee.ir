@@ -17,7 +17,7 @@ export default function Language() {
 
   if (!mounted) {
     return (
-      <span className="min-h-7 min-w-7 animate-pulse rounded-full border border-zinc-300 bg-zinc-200 p-2 dark:border-zinc-700 dark:bg-zinc-800" />
+      <span className="h-[38px] w-[52px] animate-pulse rounded-full border border-zinc-300 bg-zinc-200 dark:border-zinc-700 dark:bg-zinc-800" />
     )
   }
 
@@ -25,12 +25,12 @@ export default function Language() {
     <button
       type="button"
       onClick={toggleLang}
-      className="rounded-full border border-zinc-200 bg-zinc-100 p-2 text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+      className="flex h-[40px] items-center justify-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-100 px-2.5 text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
       aria-label={t.aria.changeLanguage}
       title={t.aria.changeLanguage}
     >
-      <span className="flex items-center gap-1 text-xs font-bold leading-none">
-        <BsTranslate className="text-sm" />
+      <BsTranslate className="text-sm" />
+      <span className="text-xs font-bold leading-none">
         {lang.toUpperCase()}
       </span>
     </button>
